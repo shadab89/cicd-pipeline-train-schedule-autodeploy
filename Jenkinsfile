@@ -12,11 +12,6 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
-        stage('Checkout Master branch') {
-        steps {
-            $class: 'GitSCM', 
-            branches: [[name: '*/master']]
-        }
     }
         stage('Build Docker Image') {
             when {
