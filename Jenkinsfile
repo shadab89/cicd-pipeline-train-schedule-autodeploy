@@ -14,9 +14,7 @@ pipeline {
         }
         stage('Checkout Master branch') {
         steps {
-            git branch: 'master',
-                //credentialsId: 'my_cred_id',
-                //url: 'ssh://git@test.com/proj/test_proj.git'
+            git branch: 'master'
             sh "ls -lat"
         }
     }
