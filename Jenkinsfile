@@ -14,8 +14,7 @@ pipeline {
         }
         stage('Checkout Master branch') {
         steps {
-            git branch: 'master'
-            sh "ls -lat"
+            checkout scm
         }
     }
         stage('Build Docker Image') {
