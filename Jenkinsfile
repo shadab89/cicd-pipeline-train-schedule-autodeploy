@@ -14,7 +14,8 @@ pipeline {
         }
         stage('Checkout Master branch') {
         steps {
-            checkout scm
+            $class: 'GitSCM', 
+            branches: [[name: '*/master']], 
         }
     }
         stage('Build Docker Image') {
