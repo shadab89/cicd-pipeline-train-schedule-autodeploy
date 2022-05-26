@@ -12,6 +12,14 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
+        stage('Checkout Master branch') {
+        steps {
+            git branch: 'master',
+                //credentialsId: 'my_cred_id',
+                //url: 'ssh://git@test.com/proj/test_proj.git'
+            sh "ls -lat"
+        }
+    }
         stage('Build Docker Image') {
             when {
                 branch 'master'
