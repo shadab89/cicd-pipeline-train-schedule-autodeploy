@@ -13,18 +13,15 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            //when {
-            //    branch 'master'
-            //}
+            when {
+                branch 'master'
+            }
             steps {
                 script {
-                    echo 'Inside Docker build'
-                    sh 'get checkout master'
-                    sh 'git pull'
-                    //app = docker.build(DOCKER_IMAGE_NAME)
-                    //app.inside {
-                    //    sh 'echo Hello, World!'
-                    //}
+                    app = docker.build(DOCKER_IMAGE_NAME)
+                    app.inside {
+                        sh 'echo Hello, World!'
+                    }
                 }
             }
         }
